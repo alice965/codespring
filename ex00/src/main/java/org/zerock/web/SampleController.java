@@ -1,8 +1,5 @@
 package org.zerock.web;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.ProductVO;
 
@@ -19,7 +15,7 @@ public class SampleController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(SampleController.class);
 	
-	@RequestMapping("doA")
+	@RequestMapping("/doA")
 	public void doA() {
 		logger.info("doA Called............");
 	}
@@ -46,7 +42,7 @@ public class SampleController {
 	@RequestMapping("doE")
 	public String doE(RedirectAttributes rttr) {
 		logger.info("doE called but redirected to doF");
-		rttr.addFlashAttribute("msg", "이것은 리다이렉트된 메시지");
+		rttr.addFlashAttribute("msg", "test test test");
 		return "redirect:/doF";
 	}
 	@RequestMapping("doF")
